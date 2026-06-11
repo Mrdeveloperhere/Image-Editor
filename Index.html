@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Editer</title>
+    <link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+  rel="stylesheet"
+/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme.css">
+
+</head>
+<body>
+    <main>
+            <section>
+                <div class="left">
+                    <div class="top">
+                        <label for="imageInput" class="btn">
+                            Choose Image
+                            <input type="file" id="imageInput" accept="image/*" hidden>
+                        </label>
+
+                        <button class="btn" id="resetBtn">
+                            Reset
+                        </button>
+                        <button class="btn" id="downloadBtn">
+                            Download
+                        </button>
+                    </div>
+                    <div class="bottom">
+                        <div class="placeholder">
+                                <i class="ri-image-line"></i>
+                                <p>Choose an image to edit</p>
+                        </div>
+                         <canvas id="imageCanvas"></canvas>
+                    </div>
+
+                   
+                </div>
+
+
+                <!-- // other secound part of the page -->
+                <div class="right">
+                    <h2>Filters</h2>
+                    <div class="filters">
+                        <!-- // data is coming from JavaScript all the filters will be dynamically added here -->
+                        </div>
+                </div>
+            </section>
+        
+    </main>
+    
+</body>
+<script src="script.js"></script>
+</html>
