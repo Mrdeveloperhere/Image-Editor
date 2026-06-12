@@ -4,6 +4,7 @@ const ImageInput = document.querySelector("#imageInput");
 const CanvasFilter = ImageCanvas.getContext("2d");
 const downloadBtn = document.querySelector("#downloadBtn");
 const resetBtn = document.querySelector("#resetBtn");
+const presetsContainer = document.querySelector(".presets");
 let file = null;
 let image = null;
 
@@ -183,3 +184,202 @@ resetBtn.addEventListener("click", () => {
 );
 
 
+const presets = {
+
+    normal: {
+        brightness: 100,
+        contrast: 100,
+        saturate: 100,
+        hueRotate: 0,
+        blur: 0,
+        grayscale: 0,
+        sepia: 0,
+        invert: 0,
+        opacity: 100
+    },
+
+    vintage: {
+        brightness: 110,
+        contrast: 90,
+        saturate: 80,
+        hueRotate: 10,
+        blur: 0,
+        grayscale: 15,
+        sepia: 45,
+        invert: 0,
+        opacity: 100
+    },
+
+    oldSchool: {
+        brightness: 95,
+        contrast: 85,
+        saturate: 60,
+        hueRotate: 0,
+        blur: 0,
+        grayscale: 40,
+        sepia: 35,
+        invert: 0,
+        opacity: 100
+    },
+
+    dramatic: {
+        brightness: 90,
+        contrast: 180,
+        saturate: 120,
+        hueRotate: 0,
+        blur: 0,
+        grayscale: 0,
+        sepia: 0,
+        invert: 0,
+        opacity: 100
+    },
+
+    cinematic: {
+        brightness: 105,
+        contrast: 140,
+        saturate: 80,
+        hueRotate: 15,
+        blur: 0,
+        grayscale: 0,
+        sepia: 10,
+        invert: 0,
+        opacity: 100
+    },
+
+    noir: {
+        brightness: 100,
+        contrast: 180,
+        saturate: 0,
+        hueRotate: 0,
+        blur: 0,
+        grayscale: 100,
+        sepia: 0,
+        invert: 0,
+        opacity: 100
+    },
+
+    retro: {
+        brightness: 115,
+        contrast: 90,
+        saturate: 70,
+        hueRotate: 20,
+        blur: 0,
+        grayscale: 20,
+        sepia: 50,
+        invert: 0,
+        opacity: 100
+    },
+
+    warm: {
+        brightness: 110,
+        contrast: 105,
+        saturate: 130,
+        hueRotate: -10,
+        blur: 0,
+        grayscale: 0,
+        sepia: 20,
+        invert: 0,
+        opacity: 100
+    },
+
+    cool: {
+        brightness: 100,
+        contrast: 110,
+        saturate: 115,
+        hueRotate: 30,
+        blur: 0,
+        grayscale: 0,
+        sepia: 0,
+        invert: 0,
+        opacity: 100
+    },
+
+    dreamy: {
+        brightness: 120,
+        contrast: 85,
+        saturate: 115,
+        hueRotate: 5,
+        blur: 3,
+        grayscale: 0,
+        sepia: 10,
+        invert: 0,
+        opacity: 100
+    },
+
+    faded: {
+        brightness: 115,
+        contrast: 75,
+        saturate: 70,
+        hueRotate: 0,
+        blur: 0,
+        grayscale: 15,
+        sepia: 20,
+        invert: 0,
+        opacity: 100
+    },
+
+    cyberpunk: {
+        brightness: 110,
+        contrast: 170,
+        saturate: 180,
+        hueRotate: 60,
+        blur: 0,
+        grayscale: 0,
+        sepia: 0,
+        invert: 0,
+        opacity: 100
+    },
+
+    horror: {
+        brightness: 75,
+        contrast: 170,
+        saturate: 50,
+        hueRotate: -30,
+        blur: 1,
+        grayscale: 30,
+        sepia: 0,
+        invert: 0,
+        opacity: 100
+    },
+
+    softPortrait: {
+        brightness: 110,
+        contrast: 90,
+        saturate: 115,
+        hueRotate: 0,
+        blur: 2,
+        grayscale: 0,
+        sepia: 5,
+        invert: 0,
+        opacity: 100
+    },
+
+    instagram: {
+        brightness: 108,
+        contrast: 115,
+        saturate: 125,
+        hueRotate: 8,
+        blur: 0,
+        grayscale: 0,
+        sepia: 12,
+        invert: 0,
+        opacity: 100
+    }
+
+};
+
+
+Object.keys(presets).forEach(presetName => {
+    const presetBtn = document.createElement("button");
+    presetBtn.innerText = presetName;
+    presetBtn.addEventListener("click", () => {
+        const preset = presets[presetName];
+        Object.keys(preset).forEach(key => {
+            filter[key].value = preset[key];
+            const input = document.getElementById(key);
+            input.value = preset[key];
+        });
+        applyFilters();
+    });
+    presetsContainer.appendChild(presetBtn);
+}); 
