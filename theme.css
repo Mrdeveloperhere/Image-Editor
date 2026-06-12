@@ -138,3 +138,13 @@ canvas{
     height: 80vh;
 
 }
+button{
+    padding: var(--padding-sm) var(--padding-lg);
+    border: none;
+    outline: none;
+    margin: 2px;
+    border-radius: var(--border-radius-md);
+    background-color: var(--active-color);
+    color: var(--primary-color);
+    cursor: pointer;
+}
